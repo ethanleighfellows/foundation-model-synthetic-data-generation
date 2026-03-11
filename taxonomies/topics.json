@@ -1,0 +1,37 @@
+{
+  "topics": {
+
+  "Finance": "Content about money flows of an organization: budgeting, accounting, financial reporting, pricing, investments, funding, or ROI. Includes P&Ls, forecasts, cost optimization, and revenue performance. Excludes general data analysis unless the primary goal is financial performance.",
+  "ProjectManagement": "Planning, coordinating, and tracking work to deliver a defined outcome. Includes roadmaps, milestones, timelines, dependencies, risks, status reports, and resource planning for projects or programs. Excludes generic task lists that are not tied to a project with goals and milestones.",
+  "Marketing": "Acquiring and engaging customers through campaigns and messaging. Includes branding, positioning, ad copy, social media posts, email campaigns, funnels, ICPs, and market research about customers or competitors. Excludes sales deal-specific conversations which belong to Sales.",
+  "ProductDevelopment": "Designing, specifying, and improving products or features. Includes product requirements, user stories, specs, feature lists, UX flows, roadmaps for product capabilities, and trade-offs between features. Excludes pure engineering implementation details (which would map better to Operations or ITSecurity).",
+  "Sales": "Winning and growing deals or accounts. Includes prospecting, outreach emails, pitches, proposals, negotiations, objections, renewals, upsell/cross-sell, and pipeline management. Excludes broad brand awareness or top-of-funnel campaigns (Marketing).",
+  "LegalCompliance": "Laws, regulations, contracts, and policy adherence. Includes T&Cs, NDAs, SLAs, regulatory filings, compliance programs, audits, and interpreting legal or regulatory requirements. Excludes internal process rules that are not tied to external law or regulation.",
+  "HumanResources": "Managing people and employment lifecycle. Includes hiring, job descriptions, interviews, performance reviews, promotion criteria, terminations, compensation and benefits, employee relations, and HR policies. Excludes project staffing plans that are mainly about timelines (ProjectManagement).",
+  "Operations": "Running day-to-day business processes efficiently. Includes SOPs, workflows, logistics, inventory, vendor management, capacity planning, and internal tools used to execute recurring processes. Excludes one-off projects (ProjectManagement) and customer-facing issue handling (CustomerSupport).",
+  "CustomerSupport": "Helping existing users or customers resolve issues and get value. Includes support tickets, troubleshooting guides, FAQs, help center content, escalation procedures, and support macros. Excludes pre-sale prospect conversations (Sales).",
+  "ITSecurity": "Protecting systems, data, and infrastructure. Includes access control, authentication, authorization, encryption, security policies, incident response, vulnerability management, pentesting, and secure configuration. Excludes general IT operations without a security focus (Operations).",
+  "ResearchDevelopment": "Exploring, prototyping, or experimenting to create new knowledge, technologies, or capabilities. Includes hypothesis-driven experiments, lab-style work, technical proofs of concept, and innovation ideas not yet in production. Excludes normal feature delivery after a product direction is already chosen (ProductDevelopment).",
+  "DataAnalytics": "Using data to generate insights, metrics, and decisions. Includes dashboards, KPIs, A/B tests, statistical analysis, forecasts, and data requirements when the primary goal is insight or measurement. Excludes purely financial reporting (Finance) unless explicitly about financial metrics.",
+  "Administration": "General office and executive support that is not domain-specific. Includes scheduling, meeting logistics, travel arrangements, expense handling, document formatting, and general coordination tasks. Use this when text is about support activities and not obviously tied to another functional domain.",
+  "EducationTraining": "Teaching and learning activities. Includes training plans, curricula, lesson content, workshops, onboarding programs, learning materials, and how-to guides whose main purpose is skill development. Excludes product documentation aimed purely at customers solving issues (CustomerSupport).",
+  "CorporateStrategy": "Long-term direction and high-level choices about the organization. Includes mission, vision, OKRs at company level, market entry decisions, M&A, portfolio choices, and board-level discussions of where to play and how to win. Excludes single-project execution details (ProjectManagement).",
+  "Comms": "Internal or external communication whose main purpose is messaging, not execution details. Includes announcements, press releases, town-hall scripts, internal memos, leadership updates, PR responses, and communication plans. Excludes marketing copy whose main goal is acquisition (Marketing).",
+  "Personal": "Clearly non-work content about an individual's personal life, hobbies, relationships, health (non-occupational), or purely private matters. Only use when the text is not plausibly related to a professional or organizational context."
+  
+},
+  "rules": {
+    "critical_rules": {
+      "Personal": "ONLY for clearly non-work content (hobbies, personal relationships, vacation planning)",
+      "Prefer_functional_domain": "ProjectManagement for plans, Comms for emails/messaging, DataAnalytics for analysis",
+      "Security_adversarial_testing": "Use ResearchDevelopment or ITSecurity, NOT Personal",
+      "Translations": "Classify based on content being translated, NOT the translation task itself"
+    },
+    "priority_order": [
+      "1. Is this clearly personal/non-work? → Personal",
+      "2. Is this research, security testing, adversarial content? → ResearchDevelopment or ITSecurity",
+      "3. What functional task is being performed? → Use functional domain",
+      "4. Use instruction_type as hint (if provided)"
+    ]
+  }
+}

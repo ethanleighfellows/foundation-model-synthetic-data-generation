@@ -1,0 +1,64 @@
+{
+  "features": {
+    "code_python": "Python source code",
+    "code_javascript": "JavaScript or TypeScript source code",
+    "code_java": "Java source code",
+    "code_shell": "Shell or command-line script code (bash, sh, zsh, PowerShell)",
+    "code_other": "Source code in other languages (C/C++, Go, Ruby, Rust, etc.)",
+    "code_sql": "SQL query code (SELECT/INSERT/UPDATE/DELETE, DDL, joins)",
+    "data_json": "JSON objects or arrays",
+    "data_csv": "Delimiter-based tabular data (CSV, TSV)",
+    "data_xml": "XML data records (not generic HTML pages)",
+    "data_yaml": "YAML configuration or data",
+    "markup_html": "HTML markup with tags",
+    "markup_xml": "Non-HTML XML markup (custom tags, XML schemas, feeds)",
+    "markdown_syntax": "Markdown inline formatting (bold, italics, backticks, links)",
+    "encoding_base64": "Base64-encoded data (binary-to-text encoding)",
+    "encoding_url": "URL-encoded or percent-encoded sequences",
+    "encoding_rot13": "ROT13 encoding",
+    "encoding_other": "Other opaque encodings or ciphertext-like blobs",
+    "table": "Rows and columns layout (ASCII tables, Markdown tables, HTML tables)",
+    "lists": "Bulleted or numbered lists where each item is separate line",
+    "headers": "Section or subsection titles (document or Markdown headings) Must be accompianied with formatting. ",
+    "steps_or_phases": "Ordered sequential instructions (Step 1, Step 2, Phase A, etc.)",
+    "email_elements": "Email-specific structure (subject line, to/from, greeting, signature)",
+    "multi_turn_chat": "Back-and-forth conversation with multiple turns between speakers",
+    "quantitative_data": "Non-financial numeric information (counts, metrics, percentages, statistics, measurements). Tag if numbers are prominent even if not dominant.",
+    "financial_figures": "Monetary values and currency amounts (prices, budgets, P&L lines, revenue)",
+    "dates_times": "Explicit dates, times, or time ranges (calendar dates, timestamps, quarters, deadlines)",
+    "formulas": "Mathematical or symbolic equations and expressions",
+    "url": "URLs or web addresses (http://, https://, www.)",
+    "file_paths": "File system paths or directory locations (/, \\, C:\\, /usr/bin)",
+    "error_messages": "System or application error output including error codes, stack traces, exception messages. Tag even if embedded in code or logs.",
+    "credentials": "Passwords, tokens, API keys, or other authentication secrets visible in text",
+    "plain_text": "Natural language prose that is not primarily any structured format above"
+  },
+  "rules": {
+    "core_tagging": [
+      "Tag MULTIPLE features when applicable (e.g., code_python + error_messages + quantitative_data)",
+      "DO NOT limit to only one feature - return ALL that apply",
+      "When in doubt, err on the side of inclusion"
+    ],
+    "code_detection": {
+      "do_tag_code": [
+        "Code with statements: 'def function(): return x'",
+        "Control structures: 'if (x > 0) { ... }'",
+        "Syntax elements: braces, semicolons, keywords, function definitions"
+      ],
+      "do_not_tag_code": [
+        "File paths: '@compreportlcserv/Service/src/main/java/com/paypal/...' (this is NOT code)",
+        "Package names: 'com.example.package.ClassName' (not code, just reference)",
+        "Extensions: 'file.java' or 'script.py' mentioned in text (not code itself)",
+        "The word 'java' or 'python' in a path (does NOT mean code is present)",
+        "File paths that mention language: '/src/main/java/com/example/...' (NOT code)",
+        "Just the word 'java' or 'python' in natural language"
+      ],
+      "rule": "Only tag code features when you see actual programming syntax"
+    },
+    "other_rules": [
+      "Most prompts have 3-5+ features - multi-tag",
+      "Tag 'steps' ONLY if enumerated steps exist in text",
+      "Tag 'quantitative_data' for metrics, NOT IDs/noise"
+    ]
+  }
+}

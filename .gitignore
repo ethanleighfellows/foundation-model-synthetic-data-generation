@@ -1,0 +1,23 @@
+# Python runtime
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables (xAI API Key)
+grok.env
+.env
+
+# Generated Output Data
+output/
+*.csv
+
+# Ignore private/live policy documents, EXCEPT the template and README
+policies/*.md
+!policies/template.md
+!policies/README.md
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+.DS_Store

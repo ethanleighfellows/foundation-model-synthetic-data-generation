@@ -1,0 +1,45 @@
+{
+  "types": {
+     "summarization": "Condense provided material into shorter representation capturing key points WITHOUT introducing new facts. TL;DR, executive summaries, bullet-point extraction.",
+    
+    "code_write": "Generate NEW code or structural artifacts (APIs, functions, classes, prompts) including scaffolding and run instructions. NOT reviewing existing code.",
+    
+    "fact_checking_verification": "Verify accuracy, completeness, or consistency of claims, tables, or documents against SPECIFIED SOURCES with explicit validation boundaries. Must involve checking against a source-of-truth, NOT synthesis or analysis.",
+    
+    "data_analysis": "Compute statistics, trends, aggregations, or visualizable insights from structured/semi-structured data. Includes metrics, time windows, comparisons, pivots, KPIs.",
+    
+    "general_inquiry": "Direct factual answer to specific question (what/when/where/how/why) expecting concise, concrete response. Questions ABOUT provided documents/passages still count as general_inquiry, NOT search.",
+    
+    "message_drafting": "Compose, rewrite, or refine short-form email or message focusing on tone, clarity, structure, etiquette. NOT long-form documents.",
+    
+    "explaining_teaching": "Teach or elucidate concept, system, or process for UNDERSTANDING. Goal is to explain HOW something works or what it is. Descriptive, educational. NOT asking model to CREATE/GENERATE something new.",
+    
+    "translation": "Render text from one language to another preserving meaning and intent, with optional register/tone constraints.",
+    
+    "ideation_decision": "Generate ideas, options, alternatives, risks, or high-level approaches without committing to single solution. Asking model to COME UP WITH or BRAINSTORM something new. Creative/generative, NOT explanatory.",
+    
+    "project_management_generation": "Create specific project management deliverables: charters, scope statements, task lists, Gantt charts, RACI matrices, project templates, Linear/Jira tickets.",
+    
+    "compare": "Analyze two or more items side-by-side describing similarities, differences, advantages, disadvantages, trade-offs. Must be structured comparison, not description in isolation.",
+    
+    "copy_drafting": "Produce longer-form written document, substantive content from scratch or source materials. NOT editing/rewriting. NOT short messages (that's message_drafting).",
+    
+    "code_review": "Technical work verification/validation or code review. Reviewing EXISTING code for bugs, style, security.",
+    
+    "no_instruction": "No clear instruction, request, or actionable task.",
+    
+    "technical_inquiry": "Direct factual question to a specific technical topic expecting concise, concrete response.",
+    
+    "explain": "Ask for explanations of certain topic or task. Educational, descriptive.",
+    
+    "prompt_write": "Explicitly a meta request asking for a prompt to be generated for an LLM. Likely in a new instance.",
+    
+    "pattern_gen": "Generate pattern or expression (regex, ANT pattern, glob, etc)."
+  },
+  "rules": [
+    "CREATE/GENERATE/BRAINSTORM → ideation_decision",
+    "EXPLAIN/ANALYZE for understanding → explaining_teaching",
+    "Search in files/dataset → search (NOT questions about provided text)",
+    "Translate non-English prompts first, then classify"
+  ]
+}
