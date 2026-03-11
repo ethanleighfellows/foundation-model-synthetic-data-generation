@@ -9,6 +9,7 @@ It leverages the **xAI API (`grok-4.1-fast-non-reasoning`)** to generate dataset
 - **Automated Taxonomy Distribution**: ensures the generated prompts don't collapse into generic filler. The script actively samples and rebalances across:
   - 17 Topics (e.g., ITSecurity, Finance, ProjectManagement)
   - 18 Instruction Types (e.g., code_write, general_inquiry, data_analysis)
+  - 31 Different Text Features
   - Variable Text Feature counts (35% plain text, 40% 2-features, 25% 3-features)
   - 11 Scenario Types & 3 Difficulties
 - **Threaded Concurrency**: Generates data rapidly using parallel workers.
