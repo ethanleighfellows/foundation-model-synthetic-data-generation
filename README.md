@@ -1,6 +1,6 @@
 # Foundation Model Synthetic Data Generation
 
-This repository provides an automated pipeline for generating high-quality, diverse, and policy-specific synthetic data (user prompts) for training LLM guardrails. 
+This repository provides an automated pipeline for generating high-quality, diverse, and policy-specific synthetic data (user prompts) for benchmarking LLM guardrails. 
 
 It leverages the **xAI API (`grok-4.1-fast-non-reasoning`)** to generate datasets that are neatly balanced across a robust taxonomy of topics, instruction types, text features, and scenarios.
 
