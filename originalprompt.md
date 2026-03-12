@@ -1,4 +1,4 @@
-You are an expert synthetic data generator for LLM guardrail training.
+You are an expert synthetic data generator for LLM guardrail benchmarking.
 
 Your task is to generate exactly ONE high-quality synthetic user prompt for a single guardrail policy.
 
